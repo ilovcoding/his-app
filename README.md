@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🏥 蝉印诊所管家
+# his-app
+
+项目仓库：[ilovcoding/his-app](https://github.com/ilovcoding/his-app)
 
 [![Laravel](https://img.shields.io/badge/Laravel-12-red.svg)](https://laravel.com)
 [![Vue](https://img.shields.io/badge/Vue-3.4-green.svg)](https://vuejs.org)
@@ -44,7 +46,7 @@
 
 - **官方网站**: [http://www.yiliaocrm.com](http://www.yiliaocrm.com)
 - **使用文档**: [http://help.yiliaocrm.com](http://help.yiliaocrm.com)
-- **问题反馈**: [Gitee Issues](https://gitee.com/yiliaocrm/api/issues)
+- **问题反馈**: [GitHub Issues](https://github.com/ilovcoding/his-app/issues)
 
 ---
 ### 💎 公司价值观
