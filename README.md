@@ -1,164 +1,96 @@
-<div align="center">
+# his-app · 澄和医疗演示系统
 
-# his-app
+面向客户演示的院内诊疗与 ERP 协同系统。前端使用 **React + Ant Design**，后端使用 **Node.js + 本地 SQLite**。不需要 Docker、Redis、MySQL 或 PHP 环境，安装后无须外部业务服务即可运行。
 
-项目仓库：[ilovcoding/his-app](https://github.com/ilovcoding/his-app)
+## 本地启动
 
-[![Laravel](https://img.shields.io/badge/Laravel-12-red.svg)](https://laravel.com)
-[![Vue](https://img.shields.io/badge/Vue-3.4-green.svg)](https://vuejs.org)
-[![PHP](https://img.shields.io/badge/PHP-8.4+-purple.svg)](https://php.net)
+需要 Node.js **22.13+**（推荐 24 或更新版本）。在项目根目录执行：
 
-</div>
+```bash
+npm ci
+npm run dev
+```
 
----
+打开 **http://localhost:3100**。首次启动自动创建数据库与虚构演示数据，无须执行迁移、配置数据库账号或登录。
 
-## 📖 项目简介
+客户演示时也可以使用构建后的版本：
 
-蝉印诊所管家专为消费医疗行业打造，全面覆盖医美、口腔、眼科及各类诊所等应用场景。我们致力于推动中国消费医疗行业信息化发展。
+```bash
+npm run build
+npm start
+```
 
----
+端口冲突时：
 
-## 🌐 在线演示
+```bash
+PORT=3101 npm run dev
+```
 
-### 租户运营平台演示地址
-请安装系统体验
+服务仅监听本机回环地址，停止服务使用 `Ctrl+C`。无需启用原 Laravel 服务。
 
-### 机构后台演示地址（旧版前端）
-- **地址**: [https://demo.yiliaocrm.com](https://demo.yiliaocrm.com)
-- **账号**: admin
-- **密码**: yiliaocrm.com@2025
+## 已实现的演示功能
 
-### 机构后台演示地址（新版前端）
-- **地址**: [https://demo.yiliaocrm.com/new](https://demo.yiliaocrm.com/new)
-- **账号**: admin
-- **密码**: yiliaocrm.com@2025
+| 模块       | 可操作内容                                                                                         |
+| ---------- | -------------------------------------------------------------------------------------------------- |
+| 工作台     | 今日预约、手术、床位、账单指标，7 / 14 / 30 天预约趋势、科室分布、床位环图与业务动态               |
+| 面诊预约   | 预约日历与接诊进度、新建预约、日期与医生筛选、列表 / 医生看板、到院 / 接诊 / 完成 / 取消、CSV 导出 |
+| 顾客档案   | 新建档案、搜索、VIP 筛选、过敏提醒、预约时间线、关联病历与账单                                     |
+| 电子病历   | 顾客病历工作台与就诊时间线；主诉、病史、检查、诊断、诊疗计划；草稿保存、继续编辑、归档后只读       |
+| 手术与耗材 | 手术安排、时间冲突检查、开始 / 完成、耗材领用、库存不足 / 过期拦截、自动计费                       |
+| 病房床位   | 蓝白床态分布、护理安排、病区及状态筛选、入住、重复入住校验、出院计费、清洁确认                     |
+| 库存管理   | 物资建档、按批次管理、安全库存 / 近效期提示、采购、验收入库、盘点调整、流水导出                    |
+| 财务核对   | 诊疗项目 / 耗材 / 床位费用明细、核对、演示收款登记、账单导出                                       |
 
----
+## 推荐演示路径
 
-## 🚀 快速开始
+1. 在工作台查看当日情况，点击「新增面诊预约」，选择顾客与空闲时段。
+2. 在「面诊预约」登记到院、开始接诊，点击「写病历」，保存草稿或归档。
+3. 在「手术与耗材」打开 **苏念安 · 面部年轻化治疗**，登记一项耗材。
+4. 在「库存管理」核对库存减少与出库流水；进入「财务核对」查看该顾客新增的耗材费用。
+5. 完成手术后，核对账单、登记演示收款，展示项目与耗材的闭环。
+6. 在「病房床位」选择空闲床位安排入住，再办理出院，查看自动生成的床位护理费用。
+7. 在「库存管理」创建采购单、验收入库，或对物资进行盘点调整。
 
-### 📘 [宝塔部署教程](https://ofwqg6.yuque.com/pf3rgx/mpga40/dzniu1i1a00mg3yq?singleDoc#)
+侧栏「演示指南」也可引导整个流程。「演示设置 → 重置演示数据」经确认后清除本演示库的操作数据，并按当天日期恢复示例；不会修改原 PHP 项目的数据库。
 
+## 数据与业务规则
 
----
+- SQLite 文件：`demo/data/his.sqlite`。数据保留在本机，刷新页面、重启服务不会丢失。
+- 数据库及其 WAL 文件已加入 Git 忽略。备份时先停止服务，再复制整个 `demo/data` 目录。
+- 每个物资记录代表一个批次；新批次通过「新增物资」建档，采购补充所选物资批次。
+- 金额按整数「分」保存，库存扣减、费用写入在同一数据库事务中完成。
+- 一次预约固定 30 分钟，同一医生或顾客同一时间段不可重复预约；手术按开始时间和预计时长校验冲突。
+- 新增耗材费用会将账单重新置为「待核对」。手术未完成不可结清，结清后不可追加该手术耗材。
+- 出院时床位费用按入住天数计费，不足一天按一天，床位转为「待清洁」。
+- 预置 16 份虚构顾客档案、4 名医生、12 个床位，以及预约、病历、手术和库存演示记录。
+- 本版使用统一管理员演示身份，不包含正式登录、细粒度权限、真实支付、发票或生产级医疗审计。所有收款动作仅登记状态，不发起资金交易。它是客户演示系统，不用于真实诊疗决策。
 
-## 🛠️ 技术支持
+## 项目结构
 
-- **官方网站**: [http://www.yiliaocrm.com](http://www.yiliaocrm.com)
-- **使用文档**: [http://help.yiliaocrm.com](http://help.yiliaocrm.com)
-- **问题反馈**: [GitHub Issues](https://github.com/ilovcoding/his-app/issues)
+```text
+demo/
+  client/              React + Ant Design 界面
+    src/main.jsx       应用导航与全局状态
+    src/pages.jsx      八个主要业务页面
+    src/workflows.jsx  业务表单、顾客 / 手术 / 账单详情
+    src/visuals.jsx    趋势、科室、床位图表与业务看板
+    src/styles.css     基础布局与业务组件样式
+    src/presentation.css 蓝白医疗演示主题
+  server.mjs           本地 HTTP 服务、开发与构建版托管
+  store.mjs            SQLite 表结构、演示数据与业务事务
+  tests/               业务流程与持久化测试
+  data/                本地数据库（自动生成，不提交）
+```
 
----
-### 💎 公司价值观
+仓库原有 `app/`、`database/`、`resources/` 等 Laravel 代码保留，作为原项目业务逻辑参考；它们不参与当前演示系统运行。原项目说明与截图见 [原项目资料](docs/legacy-project.md)。旧 Docker 镜像、编排文件和启动脚本已移除。
 
-**专注长期，价值共生** - 我们相信通过长期主义的坚持和与客户的共同成长，创造可持续的价值
+## 验证
 
----
+```bash
+npm test
+npm run build
+```
 
-### 📱 扫码添加微信，进群交流
+测试覆盖库存与账单联动、事务回滚、采购重复入库拦截、预约与手术冲突、病历归档、床位计费、收款状态和数据库持久化。
 
-<div>
-
-<img src="readme/wechat.jpg" alt="联系微信" width="200"/>
-
-</div>
-
----
-
-## 🖼️ 租户管理平台截图
-
-<table>
-  <tr>
-    <td width="50%">
-      <h3>系统配置</h3>
-      <img src="readme/config.png" alt="系统配置" />
-    </td>
-    <td width="50%">
-      <h3>数据仪表盘</h3>
-      <img src="readme/dashboard.png" alt="数据仪表盘" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>文件系统</h3>
-      <img src="readme/filesystem.png" alt="文件系统" />
-    </td>
-    <td width="50%">
-      <h3>OEM 定制</h3>
-      <img src="readme/oem.png" alt="OEM 定制" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>租户管理</h3>
-      <img src="readme/tenant.png" alt="租户管理" />
-    </td>
-    <td width="50%">
-    </td>
-  </tr>
-</table>
-
----
-
-## 🖼️ 机构端系统截图
-
-<table>
-  <tr>
-    <td width="50%">
-      <h3>工作流管理</h3>
-      <img src="readme/workflow_followup.png" alt="工作流管理" />
-    </td>
-    <td width="50%">
-      <h3>菜单预览</h3>
-      <img src="readme/menu.png" alt="菜单预览" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>登录界面</h3>
-      <img src="readme/login.png" alt="登录界面" />
-    </td>
-    <td width="50%">
-      <h3>工作台</h3>
-      <img src="readme/home.png" alt="工作台" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>顶部搜索</h3>
-      <img src="readme/topbar_search.png" alt="顶部搜索" />
-    </td>
-    <td width="50%">
-      <h3>客户管理</h3>
-      <img src="readme/customer.png" alt="客户管理" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>客户分组</h3>
-      <img src="readme/customer_group.png" alt="客户分组" />
-    </td>
-    <td width="50%">
-      <h3>预约管理</h3>
-      <img src="readme/appointment.png" alt="预约管理" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>预约配置</h3>
-      <img src="readme/appointment_config.png" alt="预约配置" />
-    </td>
-    <td width="50%">
-      <h3>ERP 管理</h3>
-      <img src="readme/erp.png" alt="ERP 管理" />
-    </td>
-  </tr>
-</table>
-
----
-
-## 📄 使用协议
-
-本项目使用协议，详见 [LICENSE](LICENSE) 文件。
-
----
+仓库：[ilovcoding/his-app](https://github.com/ilovcoding/his-app)。保留原项目 [LICENSE](LICENSE)。

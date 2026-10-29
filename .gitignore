@@ -26,8 +26,7 @@ Homestead.yaml
 Thumbs.db
 composer.lock
 
-# Docker data directories
-/docker/data/mysql/*
-/docker/data/redis/*
-!/docker/data/mysql/.gitkeep
-!/docker/data/redis/.gitkeep
+# Local demonstration app
+/dist/
+/demo/data/
+/demo/test-results/
