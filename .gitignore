@@ -28,5 +28,6 @@ composer.lock
 
 # Local demonstration app
 /dist/
-/demo/data/
+/demo/data/*
+!/demo/data/his.sqlite
 /demo/test-results/
