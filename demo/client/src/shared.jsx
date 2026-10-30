@@ -46,8 +46,12 @@ export function Person({ name, id, sub, gender, onClick }) {
             <Avatar
                 size={36}
                 style={{
-                    background: gender === "男" ? "#e4eeff" : "#eaf1ff",
-                    color: gender === "男" ? "#4279ce" : "#527eda",
+                    background: ["#e2edff", "#fff0dc", "#e0f4ef"][
+                        Number(id || 0) % 3
+                    ],
+                    color: ["#2059c9", "#a86715", "#19846c"][
+                        Number(id || 0) % 3
+                    ],
                 }}
             >
                 {name?.slice(-2)}
@@ -98,7 +102,7 @@ export function Metric({
     children,
 }) {
     return (
-        <div className="metric">
+        <div className={`metric metric-${tone}`}>
             <div className="metric-top">
                 <span>{title}</span>
                 <span className={"metric-icon " + tone}>{icon}</span>

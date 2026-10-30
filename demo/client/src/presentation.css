@@ -1669,3 +1669,492 @@
 .ant-btn.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):active {
     color: #fff;
 }
+
+/* Clearer contrast with a vivid blue anchor and restrained warm accents. */
+:root {
+    --medical-ink: #17365d;
+    --medical-text: #3e5879;
+    --medical-secondary: #647a95;
+    --medical-blue: #2468f2;
+    --medical-amber: #dd9224;
+    --medical-green: #15946e;
+}
+.workspace {
+    background:
+        radial-gradient(ellipse at 96% 0%, #dceaff 0, transparent 43%),
+        radial-gradient(ellipse at 5% 85%, #fff5e7 0, transparent 36%), #f1f5fc;
+}
+.sidebar.ant-layout-sider {
+    background: linear-gradient(170deg, #fff 50%, #f4f7fd);
+    border-right-color: #dce6f5;
+}
+.brand-symbol {
+    background: linear-gradient(140deg, #3988ff, #1b58eb);
+}
+.sidebar .ant-menu-item {
+    color: #4b6280;
+}
+.sidebar .ant-menu-item-selected {
+    background: linear-gradient(110deg, #267aff, #215bee) !important;
+    box-shadow: 0 6px 16px #2466ed30;
+}
+.nav-label {
+    color: #7d8fa8;
+}
+.clinic-selector {
+    background: #edf4ff;
+    border-color: #d6e5fa;
+}
+.clinic-selector b {
+    color: #294c79;
+}
+.clinic-selector small {
+    color: #6f859f;
+}
+.care-note {
+    background: linear-gradient(125deg, #fff5e6, #fffaf3);
+    border-color: #f2dfc3;
+}
+.care-note b {
+    color: #8f652d;
+}
+.care-note p {
+    color: #997a52;
+}
+.care-note > .anticon {
+    color: #e6a24a;
+}
+.live-dot {
+    background: #21a37d;
+}
+.page-heading h1,
+.panel-heading h3 {
+    color: #122d54;
+}
+.page-heading p,
+.panel-heading p,
+.heading-date {
+    color: var(--medical-secondary);
+}
+.panel-heading p {
+    font-size: 12px;
+}
+.panel-heading > .ant-btn {
+    color: var(--medical-blue);
+}
+.panel,
+.metric {
+    border-color: #e0e8f5;
+    background: #fff;
+    box-shadow:
+        0 7px 24px #264e8c0c,
+        0 2px 5px #244b8506;
+}
+.metric {
+    border-top: 3px solid #4386ff;
+    background:
+        radial-gradient(circle at 100% 0%, #e7f0ff, transparent 62%), #fff;
+}
+.metric-blue {
+    border-top-color: #27a888;
+    background:
+        radial-gradient(circle at 100% 0%, #e6f7f1, transparent 62%), #fff;
+}
+.metric-purple {
+    border-top-color: #8b72e9;
+    background:
+        radial-gradient(circle at 100% 0%, #f0eaff, transparent 62%), #fff;
+}
+.metric-amber {
+    border-top-color: #eda93d;
+    background:
+        radial-gradient(circle at 100% 0%, #fff1da, transparent 62%), #fff;
+}
+.metric-icon {
+    color: #fff;
+    background: linear-gradient(135deg, #4794ff, #2467ef);
+    box-shadow: 0 5px 12px #3176ec25;
+}
+.metric-icon.blue {
+    color: #fff;
+    background: linear-gradient(135deg, #3bc6a3, #199873);
+    box-shadow: 0 5px 12px #20a48023;
+}
+.metric-icon.purple {
+    color: #fff;
+    background: linear-gradient(135deg, #ad91f5, #8163db);
+    box-shadow: 0 5px 12px #8060d523;
+}
+.metric-icon.amber {
+    color: #fff;
+    background: linear-gradient(135deg, #ffc15a, #e69a25);
+    box-shadow: 0 5px 12px #df9b2823;
+}
+.metric-top {
+    color: #4d6686;
+    font-weight: 500;
+}
+.metric-value,
+.compact .metric-value {
+    color: #132e55;
+}
+.metric-value small,
+.metric-sub,
+.chart-summary,
+.chart-summary small {
+    color: #647a95;
+}
+.metric-sub {
+    border-top-color: #dde7f4;
+}
+.metric-sub .blue {
+    color: #2464d5;
+}
+.metric-blue .metric-sub .blue {
+    color: #188266;
+}
+.metric-amber .metric-sub .blue {
+    color: #b5781c;
+}
+.metric-purple .metric-sub .blue {
+    color: #7853ce;
+}
+.ant-btn-primary {
+    background: linear-gradient(105deg, #287aff, #205de9);
+}
+.ant-table-wrapper .ant-table-thead > tr > th {
+    background: #eaf1fc;
+    color: #37577e;
+    border-bottom-color: #d7e4f7;
+}
+.ant-table-wrapper .ant-table-tbody > tr > td {
+    color: #375371;
+}
+.ant-table-wrapper .ant-table-tbody > tr:hover > td {
+    background: #edf4ff !important;
+}
+.person-cell b,
+.stacked-cell b {
+    color: #2a496e;
+}
+.person-cell small,
+.stacked-cell small,
+.code-text,
+.user-name small,
+.summary-strip button > span {
+    color: #6a7f99;
+}
+.status-tag.ant-tag {
+    background: color-mix(in srgb, currentColor 12%, white);
+    font-size: 11px;
+    font-weight: 500;
+}
+.status-tag.ant-tag-blue {
+    color: #2463cf;
+}
+.status-tag.ant-tag-green {
+    color: #188353;
+}
+.status-tag.ant-tag-cyan {
+    color: #148777;
+}
+.status-tag.ant-tag-orange {
+    color: #b87716;
+}
+.status-tag.ant-tag-purple {
+    color: #7b52c5;
+}
+.summary-strip {
+    border-color: #dce6f5;
+    background: #fff;
+}
+.summary-strip button.selected {
+    background: linear-gradient(125deg, #dfecff, #edf4ff);
+    box-shadow: inset 3px 0 #3779f5;
+}
+.summary-strip button.selected b {
+    color: #205cda;
+}
+.donut-legend > div,
+.donut-legend small,
+.bar-label,
+.bar-number,
+.sync-label {
+    color: #627995;
+}
+.bar-fill {
+    background: linear-gradient(#2676f7, #64a4ff);
+}
+.activity-row b,
+.work-reminders b {
+    color: #3e5b7d;
+}
+.activity-row p,
+.activity-row time,
+.work-reminders small {
+    color: #70839d;
+}
+.activity-point {
+    background: #3479f3;
+}
+.point-1 {
+    background: #20a781;
+}
+.point-2 {
+    background: #8d69d4;
+}
+.point-3 {
+    background: #eaa237;
+}
+.reminder-symbol {
+    background: #e5efff;
+    color: #2d71e9;
+}
+.work-reminders > button:nth-of-type(2) .reminder-symbol {
+    background: #fff0d9;
+    color: #cf8c23;
+}
+.work-reminders > button:nth-of-type(3) .reminder-symbol {
+    background: #ffebe4;
+    color: #d57551;
+}
+.calendar-month b,
+.calendar-detail-head b,
+.visit-stages b,
+.week-days > button {
+    color: #496787;
+}
+.week-days > button {
+    background: #f0f5fe;
+    border-color: #d9e5f7;
+}
+.week-days > button.active {
+    color: #fff;
+    background: linear-gradient(140deg, #3787ff, #215ee9);
+}
+.calendar-month > span,
+.calendar-detail-head small,
+.time-distribution span,
+.time-distribution b,
+.calendar-bottom,
+.visit-stages small,
+.visit-progress-number small {
+    color: #6e829c;
+}
+.visit-stages span {
+    color: #2468df;
+    background: #dfeaff;
+}
+.record-profile {
+    background: linear-gradient(115deg, #dceaff, #f4f8ff);
+    border-color: #cddff8;
+}
+.record-profile p,
+.record-profile-facts,
+.record-document-meta,
+.record-patients p,
+.record-patients b small,
+.record-patients button > small,
+.record-history time {
+    color: #617a99;
+}
+.record-profile-facts b,
+.record-patients b,
+.record-history b {
+    color: #315782;
+}
+.record-patients > button.active {
+    background: #e0edff;
+    border-color: #b9d3fc;
+}
+.clinical-sections h4 {
+    color: #31557e;
+}
+.clinical-sections p {
+    color: #526d8c;
+    font-size: 13px;
+}
+.clinical-sections h4 span {
+    background: #dfeaff;
+    color: #2b69d6;
+}
+.diagnosis-section {
+    background: #edf4ff;
+    border-color: #ccdefa;
+}
+.diagnosis-section p,
+.diagnosis-section h4 {
+    color: #3465a4;
+}
+.surgery-room {
+    background: #fff;
+    border-color: #dce6f5;
+}
+.room-info h3 {
+    color: #355779;
+}
+.room-info p {
+    color: #6d829f;
+}
+.room-symbol {
+    background: #e5efff;
+    color: #3c7ce0;
+    border-color: #cfdef6;
+}
+.surgery-room.room-active {
+    background: linear-gradient(125deg, #2d80ff, #215ce6);
+    border-color: #3277f1;
+}
+.room-active h3 {
+    color: #fff;
+}
+.room-active p {
+    color: #e7f0ff;
+}
+.room-active .room-symbol {
+    color: #fff;
+    background: #ffffff20;
+}
+.ward-section {
+    background: #fff;
+    border-color: #dce6f4;
+}
+.ward-title h3 {
+    color: #2a4b74;
+}
+.ward-title span,
+.ward-workspace .bed-type,
+.ward-workspace .empty-bed > span {
+    color: #7086a2;
+}
+.ward-workspace .bed-card.available {
+    background: linear-gradient(140deg, #fff, #f1f6fe);
+    border-color: #cdddf5;
+}
+.ward-workspace .bed-card.cleaning {
+    background: #fff7e9;
+    border-color: #f1d5a7;
+}
+.ward-workspace .bed-card.occupied {
+    background: linear-gradient(145deg, #3989ff, #235fe8);
+    border-color: #397df0;
+}
+.ward-workspace .occupied .bed-meta,
+.ward-workspace .occupied .bed-meta b,
+.ward-workspace .occupied .bed-type,
+.ward-workspace .occupied .person-cell small {
+    color: #e4efff;
+}
+.ward-workspace .empty-bed b {
+    color: #536e93;
+}
+.ward-workspace .empty-bed > .anticon {
+    color: #74a0e0;
+}
+.nurse-assignments b {
+    color: #3f6086;
+}
+.nurse-assignments small {
+    color: #7288a4;
+}
+.nurse-assignments .ant-avatar {
+    color: #199676;
+    background: #ddf4ec;
+}
+.ward-care-note {
+    background: linear-gradient(135deg, #fff1d9, #fffaf1);
+    border-color: #f1dcb9;
+}
+.ward-care-note h3 {
+    color: #986d31;
+}
+.ward-care-note p {
+    color: #947b58;
+}
+.ward-care-note > .anticon {
+    color: #dda240;
+}
+.muted {
+    color: #6b7e95 !important;
+}
+.process-note,
+.page-footer {
+    color: #70839d;
+}
+
+/* Text hierarchy: black content, neutral secondary copy, white on blue. */
+:root {
+    color: #141414;
+    --medical-ink: #141414;
+    --medical-text: #141414;
+    --medical-secondary: #595959;
+}
+.brand, .brand:hover, .brand strong,
+.page-heading h1, .panel-heading h3,
+.record-profile h2, .ward-title h3,
+.bill-header h2, .profile-hero h2,
+.surgery-heading h2 {
+    color: #111;
+}
+.metric-top, .metric-value, .compact .metric-value,
+.chart-summary strong, .donut-legend b, .bar-number,
+.person-cell b, .stacked-cell b,
+.activity-row b, .work-reminders b, .work-reminders strong,
+.calendar-month b, .calendar-detail-head b, .visit-stages b,
+.visit-progress-number strong, .week-days > button,
+.record-patients b, .record-profile-facts b,
+.clinical-sections h4, .clinical-sections p,
+.diagnosis-section h4, .diagnosis-section p,
+.record-history b, .room-info h3,
+.ward-workspace .bed-card-top strong,
+.ward-workspace .empty-bed b, .bed-meta b,
+.nurse-assignments b, .user-name b, .clinic-selector b,
+.doctor-head b, .appointment-card h4, .appointment-card p,
+.stock-quantity b, .detail-section h3, .bill-section h3,
+.profile-stats b, .bill-total b {
+    color: #141414;
+}
+.ant-table-wrapper .ant-table-thead > tr > th,
+.ant-table-wrapper .ant-table-tbody > tr > td {
+    color: #141414;
+}
+.ant-table-wrapper .ant-table-thead > tr > th { font-weight: 600; }
+.sidebar .ant-menu-item:not(.ant-menu-item-selected) { color: #262626; }
+.sidebar .ant-menu-item-selected,
+.sidebar .ant-menu-item-selected:hover { color: #fff !important; }
+.summary-strip button, .summary-strip button > span,
+.summary-strip button b { color: #262626; }
+.summary-strip button.selected, .summary-strip button.selected > span,
+.summary-strip button.selected b { color: #1d5ed8; }
+.page-heading p, .panel-heading p, .heading-date,
+.metric-value small, .metric-sub, .chart-summary, .chart-summary small,
+.donut-legend > div, .donut-legend small, .bar-label,
+.person-cell small, .stacked-cell small, .code-text,
+.user-name small, .clinic-selector small, .nav-label,
+.activity-row p, .activity-row time, .work-reminders small,
+.calendar-month > span, .calendar-detail-head small,
+.time-distribution span, .time-distribution b, .calendar-bottom,
+.visit-stages small, .visit-progress-number small,
+.record-profile p, .record-profile-facts, .record-document-meta,
+.record-patients p, .record-patients b small, .record-patients button > small,
+.record-history time, .record-history button > span:not(.ant-tag):not(.anticon),
+.room-info p, .ward-title span, .ward-workspace .bed-type,
+.ward-workspace .empty-bed > span, .bed-meta,
+.nurse-assignments small, .doctor-head small, .appointment-card h4 small,
+.profile-stats span, .process-note, .sync-label, .page-footer {
+    color: #595959;
+}
+.muted { color: #595959 !important; }
+.clinical-sections p { font-weight: 400; }
+.global-search input, .table-search input { color: #141414; }
+.topbar .ant-breadcrumb { color: #595959; }
+.topbar .ant-breadcrumb li:last-child { color: #141414; }
+/* Preserve contrast for selected days, surgery rooms and occupied beds. */
+.week-days > button.active, .room-active h3 { color: #fff; }
+.room-active p { color: #fff; }
+.ward-workspace .occupied .bed-card-top strong,
+.ward-workspace .occupied .person-cell b,
+.ward-workspace .occupied .person-cell small,
+.ward-workspace .occupied .bed-meta,
+.ward-workspace .occupied .bed-meta b,
+.ward-workspace .occupied .bed-type { color: #fff; }

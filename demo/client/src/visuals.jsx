@@ -48,11 +48,11 @@ export function AreaChart({ data, label = "预约人数" }) {
         >
             <defs>
                 <linearGradient id={`fill${id}`} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#287dff" stopOpacity=".28" />
+                    <stop offset="0%" stopColor="#287dff" stopOpacity=".42" />
                     <stop
                         offset="100%"
                         stopColor="#70b1ff"
-                        stopOpacity=".025"
+                        stopOpacity=".06"
                     />
                 </linearGradient>
                 <filter id={`shadow${id}`}>
@@ -78,7 +78,7 @@ export function AreaChart({ data, label = "预约人数" }) {
                     <text
                         x={left - 14}
                         y={top + (i * plotH) / 4 + 4}
-                        fill="#879cba"
+                        fill="#595959"
                         textAnchor="end"
                         fontSize="10"
                     >
@@ -95,7 +95,7 @@ export function AreaChart({ data, label = "预约人数" }) {
                 d={path}
                 fill="none"
                 stroke="#2377ff"
-                strokeWidth="2.5"
+                strokeWidth="3"
             />
             {pts
                 .filter(
@@ -110,7 +110,7 @@ export function AreaChart({ data, label = "预约人数" }) {
                         x={d.x}
                         y={h - 11}
                         textAnchor="middle"
-                        fill="#8095b4"
+                        fill="#595959"
                         fontSize="10"
                     >
                         {dayjs(d.date).format("MM/DD")}
@@ -219,7 +219,7 @@ export function OccupancyChart({ beds, compact = false }) {
                         cy="90"
                         r="67"
                         fill="none"
-                        stroke="#eaf2ff"
+                        stroke="#f2c77d"
                         strokeWidth="19"
                     />
                     <circle
@@ -227,7 +227,7 @@ export function OccupancyChart({ beds, compact = false }) {
                         cy="90"
                         r="67"
                         fill="none"
-                        stroke="#bbd7ff"
+                        stroke="#77b1ff"
                         strokeWidth="19"
                         strokeDasharray={`${((beds.length - clean) / Math.max(1, beds.length)) * 421} 421`}
                         transform="rotate(-90 90 90)"
@@ -249,7 +249,7 @@ export function OccupancyChart({ beds, compact = false }) {
                         textAnchor="middle"
                         fontSize="30"
                         fontWeight="650"
-                        fill="#102b5b"
+                        fill="#141414"
                     >
                         {pct}%
                     </text>
@@ -258,7 +258,7 @@ export function OccupancyChart({ beds, compact = false }) {
                         y="112"
                         textAnchor="middle"
                         fontSize="11"
-                        fill="#8a9db9"
+                        fill="#595959"
                     >
                         床位使用率
                     </text>
@@ -266,9 +266,9 @@ export function OccupancyChart({ beds, compact = false }) {
             </div>
             <div className="donut-legend">
                 {[
-                    ["使用中", used, "#2679ff"],
-                    ["可入住", free, "#a6ccff"],
-                    ["待清洁", clean, "#dfe8f5"],
+                    ["使用中", used, "#2265f5"],
+                    ["可入住", free, "#77b1ff"],
+                    ["待清洁", clean, "#f2c77d"],
                 ].map(([t, n, c]) => (
                     <div key={t}>
                         <span>

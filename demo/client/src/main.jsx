@@ -36,12 +36,10 @@ import {
     AccountBookOutlined,
     SearchOutlined,
     BellOutlined,
-    QuestionCircleOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     ArrowRightOutlined,
     ReloadOutlined,
-    SafetyCertificateOutlined,
     SettingOutlined,
     HeartFilled,
     CheckCircleFilled,
@@ -229,17 +227,10 @@ function Clinic() {
                         )}
                         <Button
                             type="text"
-                            icon={<QuestionCircleOutlined />}
-                            onClick={() => setPanel("guide")}
-                        >
-                            {!collapsed && "演示指南"}
-                        </Button>
-                        <Button
-                            type="text"
                             icon={<SettingOutlined />}
                             onClick={() => setPanel("settings")}
                         >
-                            {!collapsed && "演示设置"}
+                            {!collapsed && "系统设置"}
                         </Button>
                     </div>
                 </Layout.Sider>
@@ -364,9 +355,7 @@ function Clinic() {
                     title={
                         panel === "notifications"
                             ? "工作提醒"
-                            : panel === "settings"
-                              ? "演示空间设置"
-                              : "五分钟，体验院内协同"
+                            : "系统设置"
                     }
                     open={!!panel}
                     onClose={() => setPanel(null)}
@@ -410,65 +399,6 @@ function Clinic() {
                                 </div>
                                 <ArrowRightOutlined />
                             </div>
-                        </>
-                    )}
-                    {panel === "guide" && (
-                        <>
-                            <div className="guide-intro">
-                                <SafetyCertificateOutlined />
-                                <h2>从预约到结算，流程自然衔接</h2>
-                                <p>
-                                    预置虚构顾客与业务数据，所有操作即时保存，可随时重置重新演示。
-                                </p>
-                            </div>
-                            {[
-                                [
-                                    "appointments",
-                                    "01",
-                                    "建立面诊预约",
-                                    "选择顾客、医生与时段，到院后开始接诊。",
-                                ],
-                                [
-                                    "records",
-                                    "02",
-                                    "书写诊疗病历",
-                                    "填写主诉、诊断与计划，保存草稿或归档。",
-                                ],
-                                [
-                                    "surgeries",
-                                    "03",
-                                    "登记手术及耗材",
-                                    "安排手术，登记实际用量，库存与费用同步更新。",
-                                ],
-                                [
-                                    "beds",
-                                    "04",
-                                    "安排病房床位",
-                                    "办理入住与出院，自动生成床位护理费用。",
-                                ],
-                                [
-                                    "finance",
-                                    "05",
-                                    "核对费用并收款",
-                                    "逐项核对项目与耗材，选择支付方式完成结清。",
-                                ],
-                            ].map(([key, n, title, desc]) => (
-                                <div
-                                    key={key}
-                                    className="guide-step"
-                                    onClick={() => {
-                                        navigate(key);
-                                        setPanel(null);
-                                    }}
-                                >
-                                    <span>{n}</span>
-                                    <div>
-                                        <b>{title}</b>
-                                        <p>{desc}</p>
-                                    </div>
-                                    <ArrowRightOutlined />
-                                </div>
-                            ))}
                         </>
                     )}
                     {panel === "settings" && (
@@ -548,12 +478,12 @@ const theme = {
     token: {
         colorPrimary: "#1677ff",
         colorInfo: "#1677ff",
-        colorSuccess: "#22866b",
-        colorWarning: "#d49a36",
-        colorError: "#d66a62",
-        colorText: "#1f2329",
-        colorTextSecondary: "#697586",
-        colorBorder: "#e3e9ed",
+        colorSuccess: "#15936d",
+        colorWarning: "#e59423",
+        colorError: "#de6657",
+        colorText: "#141414",
+        colorTextSecondary: "#595959",
+        colorBorder: "#d6e0ef",
         colorBgLayout: "#f5f6f8",
         borderRadius: 8,
         fontSize: 14,
@@ -568,12 +498,12 @@ const theme = {
             itemBorderRadius: 7,
             itemSelectedBg: "#e6f4ff",
             itemSelectedColor: "#1677ff",
-            itemColor: "#697983",
+            itemColor: "#262626",
             iconSize: 18,
         },
         Table: {
             headerBg: "#f7f9fa",
-            headerColor: "#667085",
+            headerColor: "#262626",
             headerSplitColor: "transparent",
             rowHoverBg: "#f0f7ff",
             cellPaddingBlock: 17,

@@ -1,0 +1,9 @@
+/node_modules/
+/dist/
+/test-results/
+/data/*
+!/data/his.sqlite
+*.log
+.DS_Store
+.env
+.env.*
